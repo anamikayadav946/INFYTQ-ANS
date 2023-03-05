@@ -1,0 +1,3 @@
+EXERCISE-63 Display the product id, category, description and price for those products whose price is maximum in each category.
+
+SELECT PRODID, CATEGORY, PDESC, PRICE FROM PRODUCT P1 WHERE PRICE=(select Max(P2.Price) from Product P2 WHERE P1.CATEGORY=P2.CATEGORY);
