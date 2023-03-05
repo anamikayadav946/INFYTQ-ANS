@@ -1,0 +1,9 @@
+EXERCISE - 59
+Select Saleid ,Sldate from Sale where Sldate = (select max(Sldate) as SLDATE from Sale);
+
+EXERCISE - 60 Display the names of salesmen who have made at least 2 sales.
+select Sname from Salesman S where 2<= (select count(*) from Sale WHERE Sid = S.Sid)
+
+EXERCISE - 61 Display the product id and description of those products which are sold in minimum total quantity.
+Select Prodid, Pdesc from Product where Prodid = (Select Prodid from Saledetail group by Prodid having Sum(quantity) = (Select min(Sum(Quantity)) as Total FROM Saledetail group by Prodid))
+
